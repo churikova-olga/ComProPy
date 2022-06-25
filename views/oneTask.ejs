@@ -1,0 +1,179 @@
+<link rel="stylesheet" type="text/css" href="/css/rating.css" xmlns="http://www.w3.org/1999/html">
+<title>ComProPy</title>
+
+
+<title>ComProPy</title>
+</head>
+<body>
+
+<!-- хедер -->
+<%- include('./partials/header.ejs') %>
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+        <div class="col-7">
+            <div class="container main">
+
+                <div class="row" style="align-items: center">
+                    <%if (checkVote !== true) {%>
+                    <form method="post" action="/tasks/<%=task[0].idTasks%>/vote">
+
+                        <div class="rating rating_set" style="justify-content: space-between">
+                            <div class="rating__body">
+                                <div class="rating__active"></div>
+                                <div class="rating__items">
+                                    <input type="radio" class="rating__item" value="1" name="rating" >
+                                    <input type="radio" class="rating__item" value="2" name="rating">
+                                    <input type="radio" class="rating__item" value="3" name="rating">
+                                    <input type="radio" class="rating__item" value="4" name="rating">
+                                    <input type="radio" class="rating__item" value="5" name="rating" checked>
+                                </div>
+                            </div>
+                            <input class="rating__value" hidden value="<%=task[0].ratingTasks%>">
+
+                            <button class="btn" type="submit">Проголосовать</button>
+                        </div>
+
+                    </form>
+                    <%}else{%>
+                    <div class="rating" style="height: 40px; justify-content: space-between">
+                        <div class="rating__body">
+                            <div class="rating__active"></div>
+                            <div class="rating__items">
+                                <input type="radio" class="rating__item" value="1" name="rating" >
+                                <input type="radio" class="rating__item" value="2" name="rating">
+                                <input type="radio" class="rating__item" value="3" name="rating">
+                                <input type="radio" class="rating__item" value="4" name="rating">
+                                <input type="radio" class="rating__item" value="5" name="rating" checked>
+                            </div>
+                        </div>
+                        <input class="rating__value" hidden value="<%=task[0].ratingTasks%>">
+                        <span class="span-stars">Вы уже голосовали</span>
+                    </div>
+                    <%}%>
+
+                    <h1><%=task[0].title%></h1>
+                    <h6>Автор: <a class="author-link"  href="/information/<%=task[0].login%>"><%=task[0].lastName%> <%=task[0].firstName%></a></h6>
+
+                <hr class="hr-task">
+                <h5>Описание:</h5>
+
+                <div>
+                    <pre class="description-text">
+                     <%=task[0].description%>
+                    </pre>
+                </div>
+
+                <hr class="hr-task">
+                    <h5>Требования:</h5>
+                <div>
+                    <pre class="description-text">
+                     <%=task[0].requirements%>
+                     </pre>
+                </div>
+
+                <hr class="hr-task">
+
+                <ul class="nav flex-column" style="padding-left: 10px;">
+                    <li class="nav-item">
+                        <div class="row" style="--bs-gutter-x: 0;">
+                            <div class="col-6 " style="padding-left: 0px; padding-right: 0px;">
+                                <div class="table-rating style-title">
+                                    <span class="title">INPUT</span>
+                                </div>
+                            </div>
+                            <div class="col-6 " style="padding-left: 0px; padding-right: 0px;">
+                                <div class="table-rating style-title">
+                                    <span class="title">OUTPUT</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="nav-item">
+                        <div class="row" style=" --bs-gutter-x: 0; ">
+                            <div class="col-6 table-rating ">
+                                <span class="style-center"><%=task[0].fieldInputData%></span>
+                            </div>
+                            <div class="col-6 table-rating ">
+                                <span class="style-center"><%=task[0].fieldOutData%></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr class="hr-task">
+
+                <%if (message.length) {%>
+                    <%if (message[0].includes('SUCCESS')) {%>
+                    <div class="alert alert-success"> <%=message%> </div>
+                    <%}else{%>
+                    <div class="alert alert-danger"> <%=message%> </div>
+                    <%}%>
+                <%}%>
+
+                    <%if (messageNew.length) {%>
+                    <div class="alert alert-danger"> <%=messageNew%> </div>
+                    <%}%>
+
+                <div>
+
+                    <form method="post" action="/solution/task/<%=task[0].idTasks%>">
+                     <label for="message" class="form-label" >Ваше решение </label>
+                    <textarea name="solution" type="text" class="form-control textarea-task" rows="20" ></textarea>
+                    <button class="btn">Отправить</button>
+                    </form>
+
+                </div>
+
+                <hr class="hr-task">
+
+                <div>
+                    <form method="post" action="/comment/task/<%=task[0].idTasks%>">
+                    <label for="message" class="form-label" >Оставьте ваш комментарий</label>
+                    <!-- value заполнить из бд-->
+                    <textarea type="text" class="form-control textarea-task" rows="7" name="message" required></textarea>
+                    <button type="submit" class="btn"> Отправить </button>
+                    </form>
+                </div>
+
+                    <hr class="hr-task">
+
+                    <%if (comments.length) {%>
+                    <div>
+
+                     <h5> Комментарии</h5>
+
+                    <%for (let i = 0; i < comments.length; i++) {%>
+                        <div class="row comment">
+                            <div class="col-2" style="padding-right: 0px">
+                                <img class="img-responsive" src="<%=comments[i].avatar%>" alt="profile">
+                            </div>
+                            <div class="col-8 center">
+                                <div class="comment-content">
+                                    <h5 class="name"><%=comments[i].lastName%> <%=comments[i].firstName%> </h5>
+                                    <div style="overflow: hidden"><%=comments[i].messageComment%></div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="comment-content comment-rating">
+                                    <i>Рейтинг: <%=comments[i].ratingProfile%></i>
+                                    <i style="width: min-content;"> <%=comments[i].new_date%></i>
+                                </div>
+                            </div>
+                        </div>
+                    <%}%>
+                    </div>
+                    <%}else{%>
+                        <div>Комментариев нет</div>
+                    <%}%>
+            </div>
+        </div>
+        </div>
+        <%- include('./partials/right-menu.ejs') %>
+    </div>
+</div>
+<script src="/js/stars.js"></script>
+</body>
+
+</html>

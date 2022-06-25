@@ -1,0 +1,73 @@
+<link rel="stylesheet" type="text/css" href="/css/edit.css">
+<title>ComProPy</title>
+</head>
+<body>
+
+<%- include('./partials/header.ejs') %>
+<!-- боковая панель -->
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+        <!-- Основная информация -->
+        <div class="col-7">
+            <div class="container main">
+                <div class="mb-3">
+                    <span class="title-form">Редактирование</span>
+                </div>
+
+                <hr>
+
+                <form class="form-edit" method="POST" enctype="multipart/form-data" action="/edit">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Фамилия</label>
+                                <input type="text" class="form-control" name="lastName" value="<%=user[0].lastName%>" required>
+                                <!-- <div class="form-text">We'll never share your email with anyone else.</div> -->
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">Имя</label>
+                                <!-- value заполнить из бд-->
+                                <input type="text" class="form-control" name="firstName"  value="<%=user[0].firstName%>" required>
+                                <!-- <div class="form-text">We'll never share your email with anyone else.</div> -->
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">Город</label>
+                            <!-- value заполнить из бд-->
+                            <input type="text" class="form-control" name="city" value="<%=user[0].city%>">
+                            <!-- <div class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="skills" class="form-label">Навыки</label>
+                            <!-- value заполнить из бд-->
+                            <textarea type="text" class="form-control" name="skills"><%=user[0].skills%></textarea>
+                            <!-- <div class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="info" class="form-label">О себе</label>
+                            <!-- value заполнить из бд-->
+                            <textarea type="text" class="form-control" rows="5" name="info"><%=user[0].info%></textarea>
+                            <!-- <div class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileImg" class="form-label">Аватарка</label>
+                            <input class="form-control" type="file" id="fileImg" name="avatar" value="<%=user[0].avatar%>">
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <button type="submit" class="btn">Сохранить</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <%- include('./partials/right-menu.ejs') %>
+    </div>
+</div>
+</body>
+
+</html>

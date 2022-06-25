@@ -1,0 +1,225 @@
+html, body {
+    margin: 0;
+    overflow-x:hidden;
+    height: 100%;
+}
+@font-face {
+    font-family: 'HoboSts';
+    font-style: normal;
+    font-weight: bold;
+    src: local('HoboSts'), url('/static/fonts/HoboSts.otf') format('opentype');
+}
+
+.nav-link-auth {
+    color: #dae3e7;
+    font-family: Raleway;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+}
+
+.nav-link-auth:hover {
+    color: #9AAFA4;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    font-family: Hobo Std;
+    font-weight: bold;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link:hover {
+    background-color: #dae3e7;
+    /*#E3E3E3*/
+    color: black;
+}
+
+
+
+.main {
+    padding-bottom: 30px;
+    background-color: #dae3e7;
+    padding-top: 30px;
+    height: 100%;
+}
+
+/*// логин*/
+
+.form-login{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+}
+.heightAll{
+    height: 100%;
+}
+
+
+.fa-sign-in{
+    font-family: Raleway;
+    justify-content: center;
+    display: flex;
+}
+
+.auth-btn{
+    background: #dae3e7;
+    border: 2px solid #5c767c
+}
+
+.container-fluid{
+    padding: 0px;
+    margin: 0px;
+}
+
+.form-rewiev {
+    background-color: #dae3e7;
+    height: 100%;
+}
+.rewiev{
+    padding-right: 0px;
+    padding-left: 0px;
+    height: 100%;
+}
+.hdr{
+    width: 100%;
+    align-items: center;
+}
+
+.rating-right-link{
+    text-decoration: none;
+    color: #5c767c;
+    font-weight: bold;
+    font-size: 18px;
+}
+.rating-right-num{
+    color: #5c767c;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.rating-right{
+    margin: 10px 20px;
+}
+
+.title-rating-right{
+    display: flex;
+    justify-content: center;
+    font-family: Raleway;
+    padding-top: 20px;
+}
+
+
+.rating{
+    display: flex;
+    align-items:flex-start;
+    font-size: 40px;
+    line-height: 0.75;
+}
+.rating__body{
+    position: relative;
+}
+.rating__body::before{
+    content: "★★★★★";
+    display: block;
+}
+.rating__active{
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.rating__active::before{
+    content: "★★★★★";
+    position: absolute;
+    /*width: 100%;*/
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #ffd300;
+}
+.rating__items{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.rating__item{
+    flex: 0 0 20%;
+    height: 100%;
+    opacity: 0;
+}
+.rating__value{
+    font-size: 50%;
+    line-height: 1;
+    padding: 0px 0px 0px 10px;
+}
+.btn {
+    background-color: white;
+    border: solid 2px #5c767c;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: #9DD899;
+}
+
+.btn-change {
+    float: right;
+}
+
+.span-stars{
+    font-size: 16px;
+    font-style: italic;
+}
+.img-responsive {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment{
+    background-color: white;
+    padding: 10px;
+    border: 2px solid #5c767c;
+    border-radius: 20px;
+}
+
+.btn-search{
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.description-text{
+    white-space: pre-line;
+    font-size: 16px;
+    font-family: Raleway;
+}
+
+.overflow-text{
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
+
+.author-link{
+    font-size: 16px;
+    font-family: Raleway;
+    text-decoration: none;
+    color: #5c767c;
+}
+
+.author-link:hover{
+    color: black;
+}

@@ -1,0 +1,82 @@
+.notification {
+    border: 3px solid #5c767c;
+    border-radius: 60px;
+    background-color: #dededf;
+    padding: 5px;
+}
+
+.close-btn {
+    padding: 0px;
+    border: 3px solid;
+    border-radius: 50%;
+    background: none;
+    margin: 5px;
+}
+
+.icon-image {
+    height: 40px;
+    width: 40px;
+}
+
+.center-notification {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.center-text-notification {
+    display: flex;
+    align-items: center;
+}
+
+.message {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.text-notification {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.icon-close {
+    display: flex;
+    align-items: flex-start;
+}
+
+.center-button {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-left: 50px;
+    padding-bottom: 15px;
+}
+.right-button {
+    display: flex;
+    justify-content: right;
+    padding-right: 10px;
+    padding-left: 50px;
+    padding-bottom: 15px;
+}
+
+.btn-notification {
+    background-color: white;
+    border: solid 2px #5c767c;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.delete-btn:hover {
+    background-color: #ebb0b8;
+}
+
+input.checkbox {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.checkbox-style {
+    display: flex;
+    align-items: center;
+}

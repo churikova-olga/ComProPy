@@ -1,0 +1,54 @@
+.bg-img-div{
+    border: 10px solid #5c767c;
+    padding: 0px;
+}
+
+.bg-img{
+    width: inherit;
+    height: inherit;
+}
+.title-center{
+    font-family: Raleway;
+    text-align: center;
+}
+.title-line-div{
+    justify-content: center;
+    display: flex;
+}
+
+.title-line{
+    height: 3px;
+    width: 70%;
+}
+
+.flex{
+    justify-content: center;
+    display: flex;
+}
+
+.text-width{
+    width: 50%;
+}
+
+.section-div{
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+.section-img{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.card{
+    height: 100%;
+}
+
+.icon-card{
+    width: 70px;
+    height: 70px;
+}
+
+.card-text{
+    text-align: center;
+    margin: 10px;
+}

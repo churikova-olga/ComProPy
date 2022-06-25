@@ -1,0 +1,22 @@
+.card {
+    border-radius: 5px;
+}
+
+.card-title {
+    text-align: center;
+}
+.btn {
+    background-color: white;
+    border: solid 2px #5c767c;
+    border-radius: 20px;
+}
+
+
+.btn:hover {
+    background-color: #9DD899;
+}
+
+.btn-change {
+    margin-bottom: 20px;
+    float: right;
+}

@@ -1,0 +1,57 @@
+<link rel="stylesheet" type="text/css" href="/css/person.css" xmlns="http://www.w3.org/1999/html">
+<title>ComProPy</title>
+
+</head>
+<body>
+<!-- хедер -->
+<%- include('./partials/header.ejs') %>
+
+<!-- боковая панель -->
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+        <!-- Основная информация -->
+        <div class="col-7 ">
+            <div class="container main">
+                <%if (subUser.length) {%>
+                <%for (let i = 0; i < subUser.length; i++) {%>
+                <div class="container subscription person">
+                    <!--  карточка подписчика -->
+                    <div class="row">
+                        <div class="col-2" style="padding-right: 0px">
+                            <img class="img-responsive" src="<%=subUser[i].avatar%>" alt="profile">
+                        </div>
+                        <div class="col-5 center">
+                            <div class="profile-content">
+                                <h5 class="name"><%=subUser[i].lastName%> <%=subUser[i].firstName%></h5>
+                                <!-- <h5 class="desc">Рейтинг: 11000</h5>   статус или рейтинг-->
+                                <i>Рейтинг: <%=subUser[i].ratingProfile%></i>
+                            </div>
+                        </div>
+
+                        <div class="col-5 center" style="justify-content: space-around; padding-right: 0px;">
+                            <div class="btn-change ">
+                                <a class="btn " href="/information/<%=subUser[i].login%>"><i>Посмотреть</i></a>
+                            </div>
+                            <form action="/subscriptions/delete/<%=subUser[i].idProfile%>" method='POST'>
+                            <div class="btn-change ">
+                                <button type="submit" class="btn" ><i> Удалить</i></button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <%}%>
+                <%}else{%>
+                    <p>Подписок еще нет</p>
+                <%}%>
+            </div>
+
+        </div>
+        <%- include('./partials/right-menu.ejs') %>
+    </div>
+</div>
+</body>
+
+</html>

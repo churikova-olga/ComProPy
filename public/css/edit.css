@@ -1,0 +1,26 @@
+.title-form {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.form-edit {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.btn {
+    background-color: white;
+    border: solid 2px #5c767c;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: #9DD899;
+}
+
+.btn-change {
+    float: right;
+}

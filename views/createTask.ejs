@@ -1,0 +1,85 @@
+<link rel="stylesheet" type="text/css" href="/css/edit.css">
+
+<title>ComProPy</title>
+</head>
+<body>
+
+<!-- хедер -->
+<%- include('./partials/header.ejs') %>
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+        <div class="col-7 ">
+            <div class="container main">
+
+                <div class="row heightAll">
+                    <form method="post" action="/tasks/user/create/" enctype="multipart/form-data">
+                        <%if (message.length) {%>
+                            <div class="alert alert-danger"> <%=message%> </div>
+                        <%}%>
+                        <div class="alert alert-info">Добавляя данные вставляйте разделитель для тестов /n/n/n
+                            </br> Учтите добавляя тест он будет проверяться на работоспособность</div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Название</label>
+                        <input type="text" class="form-control" name="title" required>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label" >Описание</label>
+                        <!-- value заполнить из бд-->
+                        <textarea type="text" class="form-control" rows="7" name="description" ></textarea>
+                        <!-- <div class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="requirements" class="form-label" >Требования</label>
+                        <!-- value заполнить из бд-->
+                        <textarea type="text" class="form-control" rows="4" name="requirements"></textarea>
+                        <!-- <div class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="fieldInputData" class="form-label">Входные данные</label>
+                                <textarea class="form-control" type="text" id="fieldInputData" rows="8" name="fieldInputData" required></textarea>
+                            </div>
+                            <div class="col-6">
+                                <label for="fieldOutData" class="form-label">Выходные данные</label>
+                                <textarea class="form-control" type="text" id="fieldOutData" rows="8" name="fieldOutData" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label">Входные данные</label>
+                        <input class="form-control" type="file" id="fileInput" name="InputData" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fileOut" class="form-label">Выходные данные</label>
+                        <input class="form-control" type="file" id="fileOut" name="outData" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fileTest" class="form-label">Тест</label>
+                        <input class="form-control" type="file" id="fileTest" name="urlTest" required>
+                    </div>
+
+                    <div class="mb-5 mt-3">
+                        <button type="submit" class="btn">Сохранить</button>
+                    </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+
+        <%- include('./partials/right-menu.ejs') %>
+    </div>
+</div>
+</body>
+
+</html>

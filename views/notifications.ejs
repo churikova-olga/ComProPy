@@ -1,0 +1,77 @@
+<link rel="stylesheet" type="text/css" href="/css/notification.css">
+<title>ComProPy</title>
+</head>
+
+<body>
+<!-- хедер -->
+<%- include('./partials/header.ejs') %>
+
+<!-- боковая панель -->
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+        <!-- Основная информация -->
+        <div class="col-7 ">
+            <div class="container main">
+                <%if (notification.length) {%>
+                <div class="center-button">
+                    <div class="pick">
+                        <button type="checkbox" onclick = checkbox(1) id=checkAll class="pick-btn btn-notification">
+                        Выделить все
+                        </button>
+
+                        <button type="checkbox" onclick = checkbox(0) id=checkAll class="pick-btn btn-notification">
+                            Снять выделение
+                        </button>
+                    </div>
+                </div>
+
+
+                <form action='/delete' method='POST'>
+
+                <% for(let i=0; i < notification.length; i++) {%>
+                <div class="checkbox-style">
+                    <input class="checkbox" name="delete" type="checkbox" value="<%=notification[i].idNotification%>">
+                    <label for="cb1" style="width: 100%">
+                        <div class="container notification" >
+                            <!--  карточка уведомления -->
+
+                            <div class="center-notification">
+                                <div class="text-notification center-text-notification">
+                                    <span class="message"><%=notification[i].messageNotification%></span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <hr>
+                    <%} %>
+                <div class="right-button">
+                    <div class="pick">
+                        <div class="delete">
+                            <button type="submit" class="delete-btn btn-notification">
+                                Удалить выделенное
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+                <%}else {%>
+                    <p>Уведомлений нет</p>
+                <%}%>
+
+
+            </div>
+        </div>
+
+        <%- include('./partials/right-menu.ejs') %>
+
+    </div>
+</div>
+<script src="/js/notification.js"></script>
+</body>
+
+</html>

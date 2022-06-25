@@ -1,0 +1,100 @@
+<link rel="stylesheet" type="text/css" href="/css/rating.css" xmlns="http://www.w3.org/1999/html">
+<title>ComProPy</title>
+
+</head>
+<body>
+<!-- хедер -->
+<%- include('./partials/header.ejs') %>
+
+<!-- боковая панель -->
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+        <!-- Основная информация -->
+        <div class="col-7">
+            <div class="container main">
+<!--                <select class="form-select mb-3">-->
+<!--                    <option selected>За все время</option>-->
+<!--                    <option value="1">за месяц</option>-->
+<!--                    <option value="2">за неделю</option>-->
+<!--                    <option value="3">за день</option>-->
+<!--                </select>-->
+
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <div class="row" style="--bs-gutter-x: 0;">
+                            <div class="col-1 " style="padding-left: 0px; padding-right: 0px;">
+                                <div class="table-rating style-title center-rating">
+                                    <span class="title">№</span>
+                                </div>
+                            </div>
+                            <div class="col-5 " style="padding-left: 0px; padding-right: 0px;">
+                                <div class="table-rating style-title">
+                                    <span class="title">Пользователь</span>
+                                </div>
+
+                            </div>
+                            <div class="col-3 " style="padding-left: 0px; padding-right: 0px;">
+                                <div class="table-rating style-title">
+                                    <span class="title">Город</span>
+                                </div>
+
+                            </div>
+                            <div class="col-3" style="padding-left: 0px; padding-right: 0px;">
+                                <div class="table-rating style-title">
+                                    <span class="title">Рейтинг</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <%for(let i = 0; i < num; i++){%>
+                    <%if(i < user.length){%>
+                    <li class="nav-item">
+                        <div class="row" style=" --bs-gutter-x: 0; ">
+                            <div class="col-1 table-rating ">
+                                <span class="style-center"><%=i+(page-1)*num+1%></span>
+                            </div>
+                            <div class="col-5 table-rating" style="white-space: nowrap">
+                                <span class="text-table"><a class="link-user" href="/information/<%=user[i].login%>"> <%=user[i].login%> </a></span>
+                            </div>
+                            <div class="col-3 table-rating ">
+                                <span class="style-center"><%=user[i].city%></span>
+                            </div>
+                            <div class="col-3 table-rating ">
+                                <span class="style-center"><%=user[i].ratingProfile%></span>
+                            </div>
+                        </div>
+                    </li>
+                    <%}%>
+                    <%}%>
+                </ul>
+
+             <ul class="pagination">
+                 <%let stylePage = ''%>
+                 <%if (page == 1){%>
+                 <%stylePage = 'link-number-page link-active'%>
+                 <%}else {%>
+                 <%stylePage = 'link-number-page'%>
+                 <%}%>
+
+                 <a class="<%=stylePage%>" href="/rating/1"><li class="active number-page"> <span class="text-number-page">1</span> </li></a>
+                 <%if (counter => 1){%>
+                 <%for (let i = 0; i < counter; i++){%>
+                 <%if (page == i+2){%>
+                    <a class="link-number-page link-active" href="/rating/<%=i+2%>"><li class="number-page"> <span class="text-number-page"><%=i+2%></span> </li></a>
+                 <%}else{%>
+                 <a class="link-number-page" href="/rating/<%=i+2%>"><li class="number-page"> <span class="text-number-page"><%=i+2%></span> </li></a>
+                 <%}%>
+
+                 <%}%>
+                 <%}%>
+             </ul>
+            </div>
+        </div>
+        <%- include('./partials/right-menu.ejs') %>
+    </div>
+</div>
+</body>
+
+</html>

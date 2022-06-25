@@ -1,0 +1,53 @@
+
+<title>ComProPy</title>
+</head>
+
+<body>
+<!-- хедер -->
+
+<%- include('./partials/header.ejs') %>
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+            <div class="col-7 ">
+                <div class="container main">
+                    <h4>Пользователи</h4>
+                    <%if (searchUser.length){%>
+
+                        <%for (let i = 0; i < searchUser.length; i++){%>
+                    <a href="/information/<%=searchUser[i].login%>" style="text-decoration: none; color: black">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <p class="card-text"><%=searchUser[i].login%> <%=searchUser[i].lastName%> <%=searchUser[i].firstName%> <%=searchUser[i].rating%></p>
+
+                            </div>
+                        </div>
+                    </a>
+                        <%}%>
+                    <%}else {%>
+                        <div>Таких пользователей не найдено</div>
+                    <%}%>
+                    <hr>
+                    <h4>Задачи</h4>
+                    <%if (searchTask.length){%>
+                        <%for (let i = 0; i < searchTask.length; i++){%>
+                    <a href="/tasks/<%=searchTask[i].idTasks%>" style="text-decoration: none; color: black">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%=searchTask[i].title%></h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Автор: <%=searchTask[i].login%> <%=searchTask[i].lastName%> <%=searchTask[i].firstName%> <%=searchTask[i].rating%></h6>
+                            </div>
+                        </div>
+                    </a>
+                        <%}%>
+                    <%}else {%>
+                        <div>Таких задач не найдено</div>
+                    <%}%>
+                </div>
+            </div>
+<%- include('./partials/right-menu.ejs') %>
+    </div>
+</div>
+</body>
+
+</html>

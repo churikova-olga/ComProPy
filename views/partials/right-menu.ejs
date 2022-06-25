@@ -1,0 +1,15 @@
+<div class="col-3 ">
+    <div class="container rewiev">
+        <div class="form-rewiev">
+            <h5 class="title-rating-right">Рейтинг топ-5 пользователей</h5>
+            <div style="display:flex; justify-content: center;">
+            <hr style="width: 80%; height: 2px">
+            </div>
+            <%for(let i  = 0; i < ratingRight.length; i+=1){%>
+            <div class="rating-right">
+            <span class="rating-right-num"><%=i+1%>) </span> <a class="rating-right-link" href="/information/<%=ratingRight[i].login%>"><%=ratingRight[i].login%></a>
+            </div>
+            <%}%>
+        </div>
+    </div>
+</div>

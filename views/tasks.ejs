@@ -1,0 +1,61 @@
+<title xmlns="http://www.w3.org/1999/html">ComProPy</title>
+<link rel="stylesheet" type="text/css" href="/css/tasks.css">
+</head>
+
+<body>
+
+<!-- хедер -->
+<%- include('./partials/header.ejs') %>
+
+<!-- боковая панель -->
+<div class="container-fluid menu heightAll">
+    <div class="row set heightAll">
+        <%- include('./partials/nav.ejs') %>
+        <!-- Карточка задачи -->
+        <div class="col-7 ">
+            <div class="container main">
+                    <div class="btn-change">
+                        <a class="btn" href="/tasks/user/create/"><i>Добавить задачу</i></a>
+                    </div>
+                <%if(tasks.length) {%>
+                <%for(let i = 0; i < tasks.length; i++){%>
+                <a href="/tasks/<%=tasks[i].idTasks%>" style="text-decoration: none; color: black">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+
+                            <div class="rating" style="justify-content: center">
+                                <div class="rating__body">
+                                    <div class="rating__active"></div>
+                                    <div class="rating__items">
+                                        <input type="radio" class="rating__item" value="1" name="rating">
+                                        <input type="radio" class="rating__item" value="2" name="rating">
+                                        <input type="radio" class="rating__item" value="3" name="rating">
+                                        <input type="radio" class="rating__item" value="4" name="rating">
+                                        <input type="radio" class="rating__item" value="5" name="rating">
+                                    </div>
+                                </div>
+                                <input class="rating__value" hidden value="<%=tasks[i].ratingTasks%>">
+                            </div>
+
+                        <h5 class="card-title" style="margin-top: 10px;"><%=tasks[i].title%></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Автор: <%=tasks[i].firstName%> <%=tasks[i].lastName%></h6>
+                        <h6 class="card-subtitle mb-2 text-muted"> Рейтинг автора: <%=tasks[i].ratingProfile%></h6>
+                        <p class="card-text overflow-text"><strong>Описание:</strong> <%=tasks[i].description%></p>
+                        <p class="card-text overflow-text"><strong>Требования:</strong> <%=tasks[i].requirements%></p>
+                        <p class="card-text" style="text-align: right"><%=tasks[i].new_date%></p>
+
+                    </div>
+                </div>
+                </a>
+                <%}%>
+                <%}%>
+            </div>
+
+        </div>
+        <%- include('./partials/right-menu.ejs') %>
+    </div>
+</div>
+<script src="/js/stars.js"></script>
+</body>
+
+</html>
